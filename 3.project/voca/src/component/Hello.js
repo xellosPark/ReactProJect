@@ -12,6 +12,10 @@ import World from "./World";
 import style from "./Hello.module.css";
 
 export default function Hello() {
+    function showName(){
+        console.log("Mike");
+    }
+
     return (
         <div>
             {/* <h1 style=
@@ -27,7 +31,13 @@ export default function Hello() {
             <World /> */}
             {/* <div className="box">Hello</div> */}
             {/* module 사용하여 style from 불러와 style 분리 시키다 */}
-            <div className={style.box}>Hello</div>
+            {/* <div className={style.box}>Hello</div> */}
+            <button onClick={showName}>show name</button>
+            <button
+             onClick={() => {
+                 console.log(30);
+             }}
+            >show age</button>
         </div>
     );
 };
