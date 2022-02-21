@@ -31,7 +31,10 @@ function App() {
   // 새로 시작 2022-0204-5시
   return <div className="App">
     {/* <Hello></Hello> */}
-    <Hello />
+    <h3>props : properties</h3>
+    <Hello age={10} />
+    <Hello age={20} />
+    <Hello age={30} />
     {/* <Welcome />
     <Hello />
     <Hello /> 
