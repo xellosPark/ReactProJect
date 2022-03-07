@@ -14,9 +14,12 @@ export default function Header() {
             <Link to="/create_word" className="link">
                 단어 추가
             </Link>
-            <a href="#x" className="link">
+            {/* <a href="#x" className="link">
                 Day 추가
-            </a>
+            </a> */}
+            <Link to="/create_day" className="link">
+                Day 추가
+            </Link>
         </div>
       </div>
     );
