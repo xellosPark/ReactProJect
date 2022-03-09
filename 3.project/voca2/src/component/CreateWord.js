@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // 5v
 // import { useHistory } from "react-router";
@@ -9,36 +9,42 @@ export default function CreateWord()	{
 	// 5v
 	// const history =  useHistory();
 	const history = useNavigate();
+	//  연속으로 저장 버튼 클릭시
+	const [isLoading, setIsLoading] = useState(false);
     
 
 	// 버튼 클릭시 깜박이 없어짐
-	function onSubmit(e){
+	function onSubmit(e) {
 		e.preventDefault();
 		// console.log(engRef.current.value);
 		// console.log(korRef.current.value);
 		// console.log(dayRef.current.value);
 
 		 // setIsDone(!isDone);
-		 fetch(`http://localhost:3001/words/`,{
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            // 문자열 JSON
-            body: JSON.stringify({
-                day : dayRef.current.value,
-                eng : engRef.current.value,
-				kor : korRef.current.value,
-				isDone : false
-            }),
-        })
-        .then(res => {
-            if (res.ok){
-                alert("생성이 완료 되었습니다");
-				//history.push(`/day/${dayRef.current.value}`);
-				history(`/day/${dayRef.current.value}`);
-            }
-        });
+		if(!isLoading) { 
+			setIsLoading(true);
+			fetch(`http://localhost:3001/words/`,{
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				// 문자열 JSON
+				body: JSON.stringify({
+					day : dayRef.current.value,
+					eng : engRef.current.value,
+					kor : korRef.current.value,
+					isDone : false
+				}),
+			})
+			.then(res => {
+				if (res.ok){
+					alert("생성이 완료 되었습니다");
+					//history.push(`/day/${dayRef.current.value}`);
+					history(`/day/${dayRef.current.value}`);
+				}
+				setIsLoading(false);
+			});
+		}
 	}
 
 	const engRef = useRef(null);
@@ -74,7 +80,9 @@ export default function CreateWord()	{
 					<option>2</option> */}
 				</select>
 			</div>
-			<button>저장</button>
+			<button style={{
+				opacity: isLoading ? 0.3 : 1,
+			}}> { isLoading ? "Saving..." : "저장"}</button>
 		</form>
     );
 }

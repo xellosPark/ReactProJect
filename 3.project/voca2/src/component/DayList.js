@@ -51,6 +51,10 @@ export default function DayList() {
     // 언마운트시에도 호출이되고, 값이 바뀌기 직전에도 호출이 됩니다.
     // [] 처음 호출시에만 호출
 
+    if( days.length === 0){
+        return <span>Loading...</span>
+    }
+
     return (
         <> 
             <ul className="list_day">

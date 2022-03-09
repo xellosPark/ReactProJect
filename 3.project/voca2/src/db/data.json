@@ -66,6 +66,27 @@
       "kor": "사과",
       "isDone": false,
       "id": 9
+    },
+    {
+      "day": "2",
+      "eng": "monitor",
+      "kor": "모니터",
+      "isDone": false,
+      "id": 10
+    },
+    {
+      "day": "1",
+      "eng": "SWITCH",
+      "kor": "스위치",
+      "isDone": false,
+      "id": 11
+    },
+    {
+      "day": "4",
+      "eng": "aaa",
+      "kor": "ㄱㄱㄱ",
+      "isDone": false,
+      "id": 13
     }
   ]
 }
