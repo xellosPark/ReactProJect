@@ -1,4 +1,23 @@
 import Customer from "./components/Customer";
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+import { styled } from '@mui/system';
+import { withStyles } from '@mui/styles';
+
+const useStyles = styled({
+  root: {
+    width: '100%',
+    marginTop: styled.spacing.unit * 3,
+    overflowX: "auto"
+  },
+  table: {
+    minWidth: 1080
+  }
+});
 
 function App() {
   const customers = [{
@@ -44,17 +63,31 @@ function App() {
   }
   ]
 
+  const classes = useStyles();
+
   return (
-    <div>
-      {
-        customers.map( User => {
-          return (
-          // map 사용시 키값 정의 필수
-          <Customer key = {User.id} id={User.id} image={User.image} name={User.name}
-           birthday={User.birthday} gender={User.gender} job={User.job} />);
-        })
-      }
-      {/* <Customer
+    <Paper className={classes.root}>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow>
+            <TableCell>번호</TableCell>
+            <TableCell>이미지</TableCell>
+            <TableCell>이름</TableCell>
+            <TableCell>생년월일</TableCell>
+            <TableCell>성별</TableCell>
+            <TableCell>직업</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {customers.map(User => {
+            return (
+              // map 사용시 키값 정의 필수
+              <Customer key={User.id} id={User.id} image={User.image} name={User.name}
+                birthday={User.birthday} gender={User.gender} job={User.job} />);
+          })
+          }
+        </TableBody>
+        {/* <Customer
         id={customers[0].id}
         image={customers[0].image}
         name={ customers[0].name }
@@ -62,7 +95,8 @@ function App() {
         gender={ customers[0].gender }
         job={ customers[0].job }
       /> */}
-    </div>
+      </Table>
+    </Paper>
   );
 }
 
