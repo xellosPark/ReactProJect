@@ -45,48 +45,24 @@ function App() {
   ]
 
   return (
-    <>
-      <Customer
+    <div>
+      {
+        customers.map( User => {
+          return (
+          // map 사용시 키값 정의 필수
+          <Customer key = {User.id} id={User.id} image={User.image} name={User.name}
+           birthday={User.birthday} gender={User.gender} job={User.job} />);
+        })
+      }
+      {/* <Customer
         id={customers[0].id}
         image={customers[0].image}
         name={ customers[0].name }
         birthday={ customers[0].birthday }
         gender={ customers[0].gender }
         job={ customers[0].job }
-      />
-      <Customer
-        id={customers[1].id}
-        image={customers[1].image}
-        name={ customers[1].name }
-        birthday={ customers[1].birthday }
-        gender={ customers[1].gender }
-        job={ customers[1].job }
-      />
-      <Customer
-        id={customers[2].id}
-        image={customers[2].image}
-        name={ customers[2].name }
-        birthday={ customers[2].birthday }
-        gender={ customers[2].gender }
-        job={ customers[2].job }
-      />
-       <Customer
-        id={customers[3].id}
-        image={customers[3].image}
-        name={ customers[3].name }
-        birthday={ customers[3].birthday }
-        gender={ customers[3].gender }
-        job={ customers[3].job }
-      />
-      <Customer
-        id={customers[4].id}
-        image={customers[4].image}
-        name={ customers[4].name }
-        birthday={ customers[4].birthday }
-        gender={ customers[4].gender }
-        job={ customers[4].job }
-      />
-    </>
+      /> */}
+    </div>
   );
 }
 

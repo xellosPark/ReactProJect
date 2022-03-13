@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Customer(props) {
-  console.log(props);
+function Customer( User ) {
+  // console.log(User);
   return (
     <div>
-      <CustomerProfile id={props.id} image={props.image} name={props.name} />
-      <CustomerInfo birthday={props.birthday} gender={props.gender} job={props.job}/>
+      <CustomerProfile id={User.id} image={User.image} name={User.name} />
+      <CustomerInfo birthday={User.birthday} gender={User.gender} job={User.job}/>
     </div>
   )
 }
