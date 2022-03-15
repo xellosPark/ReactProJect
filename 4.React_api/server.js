@@ -28,8 +28,6 @@ server.post("/api/user",(req,res) => {
     res.json(users);
 });
 
-
-
 server.listen(3000, () => {
     console.log("The Server is running");
 });
