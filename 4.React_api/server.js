@@ -18,7 +18,7 @@ const users = [
 ];
 
 server.get("/api/user",(req,res) => {
-    console.log(users);
+    //console.log(users);
     res.json(users);
 });
 
