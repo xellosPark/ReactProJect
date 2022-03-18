@@ -54,6 +54,7 @@ const SignUpModal = ( { show, onHide }) => {
       <GoogleLogin
         render={ (renderProps) => {
           return (
+          <div className="d-grid"  >
           <Button className='my-3'
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
@@ -64,6 +65,7 @@ const SignUpModal = ( { show, onHide }) => {
           >
             <i className='fab fa-google'></i>Sign Up with Google
           </Button>
+          </div>
           );
         }}
       />
